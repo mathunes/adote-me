@@ -30,4 +30,52 @@ class UserModel extends Connection {
 
     }
 
+    public function getById($id) {
+        
+        try {
+            
+            $sql = "SELECT * FROM user WHERE id = ?";
+
+            $conn = UserModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bindValue(1, $id);
+            $stmt->execute();
+
+            $conn = null;
+
+            return  $stmt->fetch(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+    }
+
+    public function getByEmail($email) {
+        
+        try {
+            
+            $sql = "SELECT * FROM user WHERE email = ? LIMIT 1";
+
+            $conn = UserModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bindValue(1, $email);
+            $stmt->execute();
+
+            $conn = null;
+
+            return  $stmt->fetch(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+    }
+
 }
