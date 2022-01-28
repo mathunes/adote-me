@@ -4,11 +4,15 @@ use App\Core\Connection;
 
 class UserModel extends Connection {
 
-    public function create(User $user) {
+    public function create($user) {
 
         try {
 
-            $sql = "INSERT INTO user(name, email, senha) VALUES (?, ?, ?)";
+            ?>
+                <script>alert("teste")</script>
+            <?php
+
+            $sql = "INSERT INTO user(name, email, password) VALUES (?, ?, ?)";
 
             $conn = UserModel::getConnection();
 

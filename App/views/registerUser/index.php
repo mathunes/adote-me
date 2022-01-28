@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="css/register.css" rel="stylesheet" />
+    <link href=<?= URL_CSS . '/register.css' ?> rel="stylesheet" />
     <title>Adote-me</title>
 </head>
 <body>
@@ -16,14 +16,14 @@
 
             <div id="password-error"></div>
 
-            <img src="images/logo.png" alt="logo" class="d-inline-block align-top">
+            <img src=<?= URL_IMG . "/logo.png" ?> alt="logo" class="d-inline-block align-top">
             
             <span>Cadastrar</span>
 
-            <form>
+            <form action="/User/register" method="post">
 
                 <div class="form-label">
-                    <input type="text" class="form-control" id="nome" name="Name" placeholder="Nome" required>
+                    <input type="text" class="form-control" id="nome" name="name" placeholder="Nome" required>
                 </div>
 
                 <div class="form-label">
@@ -31,15 +31,11 @@
                 </div>
 
                 <div class="form-label">
-                    <input type="text" class="form-control" id="endereco" name="Address" placeholder="Endereço" required>
+                    <input type="password" id="senha" class="form-control"  name="password" placeholder="Senha" required>
                 </div>
 
                 <div class="form-label">
-                    <input type="password" id="senha" class="form-control"  name="senha" placeholder="Senha" required>
-                </div>
-
-                <div class="form-label">
-                    <input type="password" id="confirmacaoSenha" class="form-control" name="confirmacaoSenha" placeholder="Confirme a senha" required>
+                    <input type="password" id="confirmacaoSenha" class="form-control" name="passwordConfirmation" placeholder="Confirme a senha" required>
                 </div>
 
                 <div class="form-label">

@@ -23,10 +23,9 @@ class Authentication extends Controller {
 
             if (!empty($user)) {
 
-                $user_password = $user['password']; // achou o usuário usa hash do banco
+                $user_password = $user['password'];
 
-                // if (password_verify($user_password, $password)) {
-                if($user_password == $password) {
+                if (password_verify($password, $user_password)) {
 
                     echo $password;
 
