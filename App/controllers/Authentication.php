@@ -23,9 +23,12 @@ class Authentication extends Controller {
 
             if (!empty($user)) {
 
-                $user_password = $user['senha']; // achou o usuário usa hash do banco
+                $user_password = $user['password']; // achou o usuário usa hash do banco
 
-                if (password_verify($user_password, $password)) {
+                // if (password_verify($user_password, $password)) {
+                if($user_password == $password) {
+
+                    echo $password;
 
                     $_SESSION['id'] = $user['id'];
                    
@@ -33,13 +36,16 @@ class Authentication extends Controller {
 
                 } else {
                 
+                    echo $user_password;
+
                     $message = ["Usuário e/ou senha incorreta"];
 
                     $data = [
                         'messages' => $message
                     ];
                     
-                    $this->view('login/index', $data);
+                    Functions::redirect("");
+                    // $this->view('login/index', $data);
 
                 }
                 
@@ -51,7 +57,8 @@ class Authentication extends Controller {
                     'messages' => $message
                 ];
                 
-                $this->view('login/index', $data);
+                Functions::redirect("");
+                // $this->view('login/index', $data);
 
             }
                     

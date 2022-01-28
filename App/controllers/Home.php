@@ -5,13 +5,11 @@ use App\Core\Controller;
 class Home extends Controller
 {
 
-    function __construct()
-    {
+    function __construct() {
         session_start();
     }
     
-    public function index()
-    {
+    public function index() {
         //$artigoModel = $this->model("ArtigoModel");
 
         //$artigos = $artigoModel->read()->fetchAll(\PDO::FETCH_ASSOC);

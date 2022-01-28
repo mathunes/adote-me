@@ -37,7 +37,7 @@ if (isset($data['mensagens'])) { ?>
             <form action="<?= URL_BASE . '/Authentication/login' ?>" method="post">
 
                 <div class="form-label">
-                    <input type="text" class="form-control" name="username" placeholder="Email">
+                    <input type="text" class="form-control" name="email" placeholder="Email">
                 </div>
 
                 <div class="form-label">
