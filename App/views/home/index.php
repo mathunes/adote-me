@@ -16,7 +16,7 @@
             <a class="navbar-brand" href="./home">
                 <img src="images/logo.png" alt="logo" class="d-inline-block align-top">
             </a>
-
+            <?=$_SESSION['userId']?>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -52,7 +52,7 @@
                                 </form>
                             </li>
                             <li>
-                                <form method="POST" action="/logout">
+                                <form action="<?= URL_BASE . '/Authentication/logout' ?>" method="post">
                                     <button class="btn" type="submit" id="btn-exit">Sair</button>
                                 </form>
                             </li>

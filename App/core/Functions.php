@@ -10,10 +10,10 @@ class Functions {
        
     }
 
-    // public static function usuarioLogado() {
+    public static function isLogged() {
 
-    //     return isset($_SESSION['userId']) && isset($_SESSION['userName']);
+        return isset($_SESSION['userId']);
         
-    // }
+    }
 
 }

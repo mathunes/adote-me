@@ -30,7 +30,7 @@ class Authentication extends Controller {
 
                     echo $password;
 
-                    $_SESSION['id'] = $user['id'];
+                    $_SESSION['userId'] = $user['id'];
                    
                     Functions::redirect("Home");
 
@@ -67,6 +67,14 @@ class Authentication extends Controller {
             Functions::redirect();
 
         }
+
+    }
+
+    public function logout() {
+        
+        session_unset();
+        session_destroy();
+        Functions::redirect();
 
     }
 
