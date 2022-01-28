@@ -50,7 +50,7 @@ if (isset($data['mensagens'])) { ?>
 
             </form>
            <div>
-                <a href="/cadastrar">Não possui conta? <b>Cadastra-se</b></a>
+                <a href="/RegisterUser">Não possui conta? <b>Cadastra-se</b></a>
            </div>
 
         </div>
