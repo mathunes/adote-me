@@ -141,7 +141,7 @@
                     
                     <div class="card">
 
-                        <img class="card-img-top" src="images/image 2.png" />
+                        <img class="card-img-top" src="<?=$kid['photo_link']?>" />
 
                         <div class="card-body">
 
@@ -190,43 +190,31 @@
 
     </footer>
 
+    <div>
+
+        <input type="hidden" id="kids_m_adopted" value="<?=$data['kids_m_adopted']?>" />
+        <input type="hidden" id="kids_f_adopted" value="<?=$data['kids_f_adopted']?>" />
+        
+    </div>
+    
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <script>
 
-        google.charts.load('current', {'packages':['corechart']});
-
-        function desenharPizzaIdade (){
-
-            var tabela = new google.visualization.DataTable();
-            tabela.addColumn('string','idade');
-            tabela.addColumn('number','adotados');
-            tabela.addRows([
-                ['0 - 1 anos', 3],
-                ['1 - 2 anos', 2],
-                ['2 - 3 anos', 1],
-                ['4 - 5 anos', 0]
-            ]);
-
-            var opcoes = {
-                'title': 'Adotados por faixa etária'
-            };
-
-            var grafico = new google.visualization.PieChart(document.getElementById('graficoIdade'));
-            grafico.draw(tabela, opcoes);
-
-        }
-
-    google.charts.setOnLoadCallback(desenharPizzaIdade);
+    google.charts.load('current', {'packages':['corechart']});
 
     function desenharPizzaSexo (){
 
+            var kidsAdoptedMCount = parseInt(document.getElementById('kids_m_adopted').getAttribute('value'));
+            var kidsAdoptedFCount = parseInt(document.getElementById('kids_f_adopted').getAttribute('value'));
+
             var tabela = new google.visualization.DataTable();
             tabela.addColumn('string','idade');
             tabela.addColumn('number','adotados');
             tabela.addRows([
-                ['Feminino', 3],
-                ['Masculino', 3]
+                ['Feminino', kidsAdoptedFCount],
+                ['Masculino', kidsAdoptedMCount]
             ]);
 
             var opcoes = {

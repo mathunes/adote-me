@@ -21,9 +21,11 @@ class SuccessCases extends Controller
 
         $kidModel = $this->model("KidModel");
 
-        $kids = $kidModel->getAdopted()->fetchAll(\PDO::FETCH_ASSOC);;
+        $kids = $kidModel->getAdopted()->fetchAll(\PDO::FETCH_ASSOC);
 
-        $data = ['kids' => $kids];
+        $count = $kidModel->getKidsAdopted();
+
+        $data = ['kids' => $kids, 'kids_m_adopted' => $count[0]['count(*)'], 'kids_f_adopted'=> $count[1]['count(*)']];
         
         $this->view('successcases/index', $data);
 

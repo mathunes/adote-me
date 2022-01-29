@@ -9,6 +9,7 @@ class Kid {
     private $birthday;
     private $gender;
     private $adopted;
+    private $photoLink;
 
     public function getId() {
         return $this->id;
@@ -57,6 +58,16 @@ class Kid {
 
     public function setAdopted($adopted) {
         $this->adopted = $adopted;
+
+        return $this;
+    }
+
+    public function getPhotoLink() {
+        return $this->photoLink;
+    }
+
+    public function setPhotoLink($photoLink) {
+        $this->photoLink = $photoLink;
 
         return $this;
     }

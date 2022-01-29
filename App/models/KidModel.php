@@ -51,4 +51,38 @@ class KidModel extends Connection {
 
     }
 
+    public function getKidsAdopted() {
+        
+        try {
+            
+            $sql = "SELECT count(*) FROM kid WHERE adopted = true AND gender = 'MASCULINO'";
+
+            $conn = KidModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+
+            $count_m = $stmt->fetch();
+            
+            $sql = "SELECT count(*) FROM kid WHERE adopted = true AND gender = 'FEMININO'";
+
+            $conn = KidModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+
+            $count_f = $stmt->fetch();
+
+            $conn = null;
+            
+            return [$count_m, $count_f];
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+    }
+
 }
