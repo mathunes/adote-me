@@ -38,10 +38,10 @@ class KidModel extends Connection {
 
             $stmt = $conn->prepare($sql);
             $stmt->execute();
-
+            
             $conn = null;
-
-            return  $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            return $stmt;
 
         } catch (PDOException $e) {
 

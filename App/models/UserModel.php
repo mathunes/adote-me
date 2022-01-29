@@ -44,7 +44,7 @@ class UserModel extends Connection {
 
             $conn = null;
 
-            return  $stmt->fetch(PDO::FETCH_ASSOC);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
 
         } catch (PDOException $e) {
 

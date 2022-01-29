@@ -129,49 +129,42 @@
 
             <div class="cards" id="cards">
 
-                <div class="card">
+            <?php
+            
+            $kids = $data['kids'];
 
-                    <img class="card-img-top" src="images/image 2.png" />
+            $today = new DateTime(date('Y-m-d'));
 
-                    <div class="card-body">
+            if (!empty($kids)) {
 
-                        <h5 class="card-title">Juan Diego</h5>
+                foreach ($kids as $kid) { ?>
+                    
+                    <div class="card">
 
-                        <p class="card-text">11 anos</p>
+                        <img class="card-img-top" src="images/image 2.png" />
 
-                    </div>
+                        <div class="card-body">
 
-                </div>
+                            <h5 class="card-title"><?=$kid['name']?></h5>
 
-                <div class="card">
+                            <p class="card-text"><?=$today->diff(new Datetime($kid['birthday']))->y?> anos</p>
 
-                    <img class="card-img-top" src="images/image 2-1.png" />
-
-                    <div class="card-body">
-
-                        <h5 class="card-title">Germano Dias</h5>
-
-                        <p class="card-text">11 anos</p>
+                        </div>
 
                     </div>
+                    
+                <?php
 
-                </div>
+                }
 
-                <div class="card">
+            } else {
 
-                    <img class="card-img-top" src="images/image 2-2.png" />
+                echo "Não há casos de sucesso";
 
-                    <div class="card-body">
+            }
+            ?>
 
-                        <h5 class="card-title">Julia Porcher</h5>
-
-                        <p class="card-text">11 anos</p>
-
-                    </div>
-
-                </div>
-
-            </div>
+            </div>           
 
         </section>
 

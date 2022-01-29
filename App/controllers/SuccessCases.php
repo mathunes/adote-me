@@ -19,7 +19,13 @@ class SuccessCases extends Controller
     
     public function index() {
 
-        $this->view('successcases/index');
+        $kidModel = $this->model("KidModel");
+
+        $kids = $kidModel->getAdopted()->fetchAll(\PDO::FETCH_ASSOC);;
+
+        $data = ['kids' => $kids];
+        
+        $this->view('successcases/index', $data);
 
     }
 }
