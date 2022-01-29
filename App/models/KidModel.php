@@ -85,4 +85,37 @@ class KidModel extends Connection {
 
     }
 
+    public function search($gender, $maxAge) {
+        
+        $maxDate = date_create();
+
+        date_sub($maxDate, date_interval_create_from_date_string(strval($maxAge . " year")));
+
+        try {
+            
+            $sql = "SELECT * FROM kid WHERE adopted = false AND gender = ? AND birthday > ?";
+
+            $conn = KidModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(1, $gender);
+            $stmt->bindValue(2, $maxDate->format('Y-m-d'));
+
+            $stmt->execute();
+
+            $kids = $stmt->fetch();
+            
+            $conn = null;
+            
+            return $kids;
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+    }
+
 }

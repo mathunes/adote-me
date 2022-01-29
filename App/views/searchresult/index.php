@@ -122,7 +122,7 @@
 </div>
 
 <div class="container" id="container">
-
+    <?= var_dump($data) ?>
     <section>
 
         <h4 class="text-center">Resultados de Busca</h4>

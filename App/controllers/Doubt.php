@@ -35,7 +35,7 @@ class Doubt extends Controller {
         
         } else {
 
-            Functions::redirect("");
+            Functions::redirect("Home");
 
         }
     }
