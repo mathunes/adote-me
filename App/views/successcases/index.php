@@ -52,7 +52,7 @@
                                 </form>
                             </li>
                             <li>
-                                <form method="POST" action="/logout">
+                                <form action="<?= URL_BASE . '/Authentication/logout' ?>" method="post">
                                     <button class="btn" type="submit" id="btn-exit">Sair</button>
                                 </form>
                             </li>

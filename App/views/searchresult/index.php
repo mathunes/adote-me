@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="css/howtoadopt.css" rel="stylesheet" />
+    <link href="css/success.css" rel="stylesheet" />
+    <script src="https://unpkg.com/axios@0.21.4/dist/axios.min.js"></script>
     <title>Adote-me</title>
 </head>
 <body>
@@ -22,15 +23,15 @@
 
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="navbar-nav ms-auto d-flex mb-2 mb-lg-0">
-                    <li class="nav-item mx-2">
-                        <a class="nav-link" href="/Home">Início</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link active" href="/HowToAdopt">Como adotar</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link" href="/SuccessCases">Casos de sucesso</a>
-                    </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="/home">Início</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="/como-adotar">Como adotar</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="/casos-sucesso">Casos de sucesso</a>
+                </li>
                 <li class="nav-item dropdown mx-2">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Processo de adoção
@@ -46,12 +47,12 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
                         <li>
-                            <form method="GET" action="/em-construcao">
+                            <form method="GET" action="/loginAdm">
                                 <button class="btn" type="submit" id="btn-adm">Administração</button>
                             </form>
                         </li>
                         <li>
-                            <form action="<?= URL_BASE . '/Authentication/logout' ?>" method="post">
+                            <form method="POST" action="/logout">
                                 <button class="btn" type="submit" id="btn-exit">Sair</button>
                             </form>
                         </li>
@@ -120,130 +121,43 @@
     </div>
 </div>
 
-<div class="container">
-
-    <!-- steps -->
+<div class="container" id="container">
 
     <section>
 
-        <h4>Etapas</h4>
+        <h4 class="text-center">Resultados de Busca</h4>
 
-        <div class="cards">
+        <div class="cards" id="cards">
 
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <img src="images/step-1.png" class="card-img-top" alt="Crianças">
-                    <h5 class="card-title">1 - Selecionar a criança</h5>
+            <block each="crianca : ${criancas}">
+
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title" text="${crianca.Name}"></h5>
+
+                        <p class="card-text" text="${crianca.Age}"></p>
+
+                    </div>
+
                 </div>
-            </div>
 
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <img src="images/step-2.png" class="card-img-top" alt="Documentação">
-                    <h5 class="card-title">2 - Candidatar-se</h5>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <img src="images/step-3.png" class="card-img-top" alt="Martelo de juiz">
-                    <h5 class="card-title">3 - Aguardar resultado</h5>
-                </div>
-            </div>
+            </block>
 
         </div>
-
-    </section>
-
-    <!-- deadline -->
-
-    <section>
-
-        <h4>Prazo</h4>
-
-        <div class="cards">
-
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <img src="images/deadline.png" class="card-img-top" alt="Calendário">
-                    <h5 class="card-title">10 para divulgação do resultado</h5>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- documentation -->
-
-    <section>
-
-        <h4>Documentação</h4>
-
-        <div class="cards">
-
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <img src="images/docs.png" class="card-img-top" alt="Documentos">
-                    <h5 class="card-title d-inline-block" id="docs" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-html="true" data-bs-content="RG - CPF">Documentos pessoais</h5>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <img src="images/income.png" class="card-img-top" alt="Dinheiro">
-                    <h5 class="card-title">Renda mensal</h5>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- doubt -->
-
-    <section>
-
-        <h4>Dúvidas</h4>
-
-        <form id="form-contact" action="<?= URL_BASE . '/Doubt/register' ?>" method="post">
-            <input type="hidden" name="userId" value="<?=$_SESSION['userId']?>">
-
-            <div class="mb-3">
-                <label for="form-message" class="form-label">Dúvida</label>
-                <textarea class="form-control" name="message" id="form-message" rows="3"></textarea>
-            </div>
-
-            <button type="submit" class="btn">Enviar</button>
-
-        </form>
 
     </section>
 
 </div>
 
-<footer>
+<footer class="fixed-bottom">
 
     <img src="images/logo.png" alt="logo">
 
 </footer>
 
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-<script>
-        var myCarousel = document.querySelector('#carousel-home')
-        var carousel = new bootstrap.Carousel(myCarousel, {
-            interval: 2000,
-            wrap: true
-        })
-
-        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-            return new bootstrap.Popover(popoverTriggerEl)
-        });
-
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 
 </body>
 </html>
