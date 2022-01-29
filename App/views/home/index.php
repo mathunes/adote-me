@@ -26,7 +26,7 @@
                         <a class="nav-link active" href="/home">Início</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="/como-adotar">Como adotar</a>
+                        <a class="nav-link" href="/HowToAdopt">Como adotar</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link" href="/casos-sucesso">Casos de sucesso</a>
