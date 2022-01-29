@@ -206,14 +206,15 @@
 
         <h4>Dúvidas</h4>
 
-        <form id="form-contact">
+        <form id="form-contact" action="<?= URL_BASE . '/Doubt/register' ?>" method="post">
+            <input type="hidden" name="userId" value="<?=$_SESSION['userId']?>">
 
             <div class="mb-3">
                 <label for="form-message" class="form-label">Dúvida</label>
-                <textarea class="form-control" id="form-message" rows="3"></textarea>
+                <textarea class="form-control" name="message" id="form-message" rows="3"></textarea>
             </div>
 
-            <button type="submit" onclick="salvarDuvida()" class="btn">Enviar</button>
+            <button type="submit" class="btn">Enviar</button>
 
         </form>
 
@@ -236,10 +237,6 @@
             interval: 2000,
             wrap: true
         })
-        function salvarDuvida(){
-            let text = document.getElementById('form-message').value;
-            axios.post('/duvidaNova', text).then(response => console.log("Funcionou"));
-        }
 
         var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
         var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
