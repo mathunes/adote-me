@@ -258,13 +258,15 @@
 
             <h4>Contato</h4>
 
-            <form id="form-contact">
+            <form id="form-contact" action="<?= URL_BASE . '/Contact/register' ?>" method="post">
+                <input type="hidden" name="userId" value="<?=$_SESSION['userId']?>">
+
                 <div class="mb-3">
                     <label for="form-message" class="form-label">Mensagem</label>
-                    <textarea class="form-control" id="form-message" rows="3"></textarea>
+                    <textarea class="form-control" name="message" id="form-message" rows="3"></textarea>
                 </div>
 
-                <button type="submit" onclick="salvarDuvida()" class="btn">Enviar</button>
+                <button type="submit" class="btn">Enviar</button>
             </form>
 
         </section>

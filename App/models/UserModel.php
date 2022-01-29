@@ -8,10 +8,6 @@ class UserModel extends Connection {
 
         try {
 
-            ?>
-                <script>alert("teste")</script>
-            <?php
-
             $sql = "INSERT INTO user(name, email, password) VALUES (?, ?, ?)";
 
             $conn = UserModel::getConnection();
