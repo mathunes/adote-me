@@ -122,7 +122,7 @@ class KidModel extends Connection {
 
         try {
             
-            $sql = "INSERT INTO adoption_process(user_id, kid_id, status) VALUE (?, ?, 'ANALISE')";
+            $sql = "INSERT INTO adoption_process(user_id, kid_id, status) VALUE (?, ?, 'EM ANALISE')";
 
             $conn = KidModel::getConnection();
 

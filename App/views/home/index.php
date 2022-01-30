@@ -123,7 +123,7 @@
                     <img src="images/carousel-img-1.png" class="d-block w-100" alt="Família">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Conheça as crianças adotadas</h5>
-                        <a href="./em-construcao" class="link-carousel">
+                        <a href="/SuccessCases" class="link-carousel">
                             <p>Casos de sucesso</p>
                         </a>
                     </div>
@@ -132,7 +132,7 @@
                     <img src="images/carousel-img-2.png" class="d-block w-100" alt="Criança com brinquedo">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Conheça os passos para adoção</h5>
-                        <a href="./como-adotar" class="link-carousel">
+                        <a href="HowToAdopt" class="link-carousel">
                             <p>Como adotar</p>
                         </a>
                     </div>
@@ -141,7 +141,7 @@
                     <img src="images/carousel-img-3.png" class="d-block w-100" alt="Pés de crianças">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Mude a história de uma criança</h5>
-                        <a href="./em-construcao" class="link-carousel">
+                        <a href="#" class="link-carousel">
                             <p>Adote uma criança</p>
                         </a>
                     </div>
