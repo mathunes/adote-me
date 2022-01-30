@@ -202,6 +202,14 @@ class KidModel extends Connection {
 
             $stmt->execute();
 
+            $sql = "UPDATE kid SET adopted = false WHERE id = ?";
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(1, $kidId);
+
+            $stmt->execute();
+
             $sql = "SELECT * FROM kid, adoption_process ap WHERE ap.user_id = ? AND kid.id = ap.kid_id";
 
             $stmt = $conn->prepare($sql);

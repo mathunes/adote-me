@@ -18,6 +18,24 @@ class AdoptionProcessModel extends Connection {
 
             $stmt->execute();
 
+            $sql = "SELECT kid.id FROM kid, adoption_process ap WHERE kid.id = ap.kid_id AND ap.id = ?";
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(1, $adoptionProcessId);
+
+            $stmt->execute();
+
+            $kidId = $stmt->fetchAll()[0]['id'];
+
+            $sql = "UPDATE kid SET adopted = true WHERE id = ?";
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(1, $kidId);
+
+            $stmt->execute();
+
             $conn = null;
 
         } catch (PDOException $e) {
