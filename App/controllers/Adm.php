@@ -66,4 +66,16 @@ class Adm extends Controller
 
     }
 
+    public function kid() {
+        
+        $kidModel = $this->model("KidModel");
+
+        $kids = $kidModel->getAll();
+
+        $data = ['kids' => $kids];
+        
+        $this->view('admkids/index', $data);
+
+    }
+
 }

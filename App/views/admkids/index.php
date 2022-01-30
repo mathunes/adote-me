@@ -26,13 +26,13 @@
                         <a class="nav-link" href="/Adm">Mensagens de contato</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link active" href="/Adm/doubt">Mensagens de dúvidas</a>
+                        <a class="nav-link" href="/Adm/doubt">Mensagens de dúvidas</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link" href="/Adm/user">Usuários</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="/Adm/kid">Crianças</a>
+                        <a class="nav-link active" href="/Adm/kid">Crianças</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link" href="/SuccessCases">Processos de adoção</a>
@@ -59,15 +59,16 @@
 
     <div class="container container-page">
 
-        <h4>Mensagens de dúvidas</h4>
+        <h4>Crianças</h4>
 
         <table>
 
             <thead>
                 <tr>
-                    <th>Mensagem</th>
-                    <th>Usuário</th>
-                    <th>Email</th>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Sexo</th>
+                    <th>Adotada</th>
                 </tr>
             </thead>
 
@@ -75,16 +76,19 @@
 
             <?php
             
-            $doubtMessages = $data['doubtMessages'];
+            $kids = $data['kids'];
 
-            if (!empty($doubtMessages)) {
+            $today = new DateTime(date('Y-m-d'));
 
-                foreach ($doubtMessages as $doubtMessage) { ?>
+            if (!empty($kids)) {
+
+                foreach ($kids as $kid) { ?>
                  
                 <tr>
-                    <td><?=$doubtMessage['message']?></td>
-                    <td><?=$doubtMessage['name']?></td>
-                    <td><?=$doubtMessage['email']?></td>
+                    <td><?=$kid['name']?></td>
+                    <td><?=$today->diff(new Datetime($kid['birthday']))->y?> anos</td>
+                    <td><?=$kid['gender']?></td>
+                    <td><?=$kid['adopted'] ? 'Sim' : 'Não'?></td>
                 </tr>
 
             <?php

@@ -32,7 +32,7 @@
                         <a class="nav-link" href="/Adm/user">Usuários</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="/SuccessCases">Crianças</a>
+                        <a class="nav-link" href="/Adm/kid">Crianças</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link" href="/SuccessCases">Processos de adoção</a>

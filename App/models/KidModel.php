@@ -224,4 +224,28 @@ class KidModel extends Connection {
 
     }
 
+    public function getAll() {
+
+        try {
+            
+            $sql = "SELECT * FROM kid";
+
+            $conn = KidModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            
+            $conn = null;
+            
+            return $stmt->fetchAll();;
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+    }
+
+
 }
