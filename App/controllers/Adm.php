@@ -84,4 +84,31 @@ class Adm extends Controller
 
     }
 
+    public function registerKid() {
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $kid = new \App\entities\Kid();
+            
+            $kid->setName($_POST['name']);
+            $kid->setBirthday($_POST['birthday']);
+            $kid->setGender($_POST['gender']);
+            $kid->setPhotoLink($_POST['photo_link']);
+            $kid->setLocalization($_POST['localization']);
+            $kid->setHealth($_POST['health']);
+
+            $kidModel = $this->model("KidModel");
+
+            $kidModel->create($kid);
+
+            Functions::redirect("Adm/kid");
+        
+        } else {
+
+            Functions::redirect("");
+
+        }
+
+    }
+
 }

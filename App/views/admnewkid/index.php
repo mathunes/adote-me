@@ -71,8 +71,7 @@
                 <input type="date" class="form-control" id="birthday" name="birthday" required>
             </div>
 
-            <select class="form-select">
-                <option selected>Sexo</option>
+            <select class="form-select" name="gender">
                 <option value="FEMININO">Feminino</option>
                 <option value="MASCULINO">Masculino</option>
             </select>

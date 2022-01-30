@@ -247,5 +247,33 @@ class KidModel extends Connection {
 
     }
 
+    public function create($kid) {
+
+        try {
+
+            $sql = "INSERT INTO kid(name, birthday, gender, photo_link, localization, health) VALUES (?, ?, ?, ?, ?, ?)";
+
+            $conn = KidModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(1, $kid->getName());
+            $stmt->bindValue(2, $kid->getBirthday());
+            $stmt->bindValue(3, $kid->getGender());
+            $stmt->bindValue(4, $kid->getPhotoLink());
+            $stmt->bindValue(5, $kid->getLocalization());
+            $stmt->bindValue(6, $kid->getHealth());
+
+            $stmt->execute();
+
+            $conn = null;
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+    }
 
 }
