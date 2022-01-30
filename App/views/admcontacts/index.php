@@ -61,7 +61,40 @@
 
         <h4>Mensagens de contato</h4>
 
-        <?php var_dump($data); ?>
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Mensagem</th>
+                    <th>Usuário</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            <?php
+            
+            $contactMessages = $data['contactMessages'];
+
+            if (!empty($contactMessages)) {
+
+                foreach ($contactMessages as $contactMessage) { ?>
+                 
+                <tr>
+                    <td><?=$contactMessage['message']?></td>
+                    <td><?=$contactMessage['name']?></td>
+                    <td><?=$contactMessage['email']?></td>
+                </tr>
+
+            <?php
+                }
+            }
+            ?>
+
+            </tbody>
+
+        </table>
 
     </div>
 

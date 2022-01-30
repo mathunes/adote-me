@@ -33,7 +33,7 @@ class ContactModel extends Connection {
 
         try {
             
-            $sql = "SELECT * FROM contact";
+            $sql = "SELECT * FROM contact, user WHERE user.id = contact.user_id";
 
             $conn = ContactModel::getConnection();
 
