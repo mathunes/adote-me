@@ -24,16 +24,16 @@
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="navbar-nav ms-auto d-flex mb-2 mb-lg-0">
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="/home">Início</a>
+                    <a class="nav-link" href="/Home">Início</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="/como-adotar">Como adotar</a>
+                    <a class="nav-link" href="/HowToAdopt">Como adotar</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="/casos-sucesso">Casos de sucesso</a>
+                    <a class="nav-link" href="/SuccessCases">Casos de sucesso</a>
                 </li>
                 <li class="nav-item dropdown mx-2">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Processo de adoção
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
