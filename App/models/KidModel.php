@@ -276,4 +276,27 @@ class KidModel extends Connection {
 
     }
 
+    public function getAdoptionProcess() {
+
+        try {
+            
+            $sql = "SELECT * FROM adoption_process ap, user, kid WHERE ap.user_id = user.id AND ap.kid_id = kid.id";
+
+            $conn = KidModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            
+            $conn = null;
+            
+            return $stmt->fetchAll();;
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+    }
+
 }

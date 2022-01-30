@@ -35,7 +35,7 @@
                         <a class="nav-link" href="/Adm/kid">Crianças</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="/SuccessCases">Processos de adoção</a>
+                        <a class="nav-link" href="/Adm/adoptionProcess">Processos de adoção</a>
                     </li>
                     <li class="nav-item dropdown mx-2 li-profile">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">

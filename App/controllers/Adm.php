@@ -111,4 +111,16 @@ class Adm extends Controller
 
     }
 
+    public function adoptionProcess() {
+
+        $kidModel = $this->model("KidModel");
+
+        $processes = $kidModel->getAdoptionProcess();
+
+        $data = ['processes' => $processes];
+        
+        $this->view('admAdoptionProcess/index', $data);
+
+    }
+
 }

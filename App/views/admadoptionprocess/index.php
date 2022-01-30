@@ -32,10 +32,10 @@
                         <a class="nav-link" href="/Adm/user">Usuários</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link active" href="/Adm/kid">Crianças</a>
+                        <a class="nav-link" href="/Adm/kid">Crianças</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="/Adm/adoptionProcess">Processos de adoção</a>
+                        <a class="nav-link active" href="/Adm/adoptionProcess">Processos de adoção</a>
                     </li>
                     <li class="nav-item dropdown mx-2 li-profile">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -59,20 +59,17 @@
 
     <div class="container container-page">
 
-        <h4>Crianças</h4>
-
-        <a href="/Adm/newKid">
-            <button class="btn">Adicionar criança</button>
-        </a>
+        <h4>Processos de adoção</h4>
 
         <table>
 
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>Idade</th>
-                    <th>Sexo</th>
-                    <th>Adotada</th>
+                    <th>Criança</th>
+                    <th>Candidato</th>
+                    <th>Status</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
 
@@ -80,19 +77,36 @@
 
             <?php
             
-            $kids = $data['kids'];
+            $processes = $data['processes'];
 
-            $today = new DateTime(date('Y-m-d'));
+            if (!empty($processes)) {
 
-            if (!empty($kids)) {
-
-                foreach ($kids as $kid) { ?>
+                foreach ($processes as $process) { ?>
                  
                 <tr>
-                    <td><?=$kid['name']?></td>
-                    <td><?=$today->diff(new Datetime($kid['birthday']))->y?> anos</td>
-                    <td><?=$kid['gender']?></td>
-                    <td><?=$kid['adopted'] ? 'Sim' : 'Não'?></td>
+                    <td><?=$process['name']?></td>
+                    <td><?=$process[5]?></td>
+                    <td><?=$process['status']?></td>
+                    <?php
+                    if ($process['status'] == 'EM ANALISE') {
+                    ?>
+                    <td>
+                        <form method="POST" action="<?= URL_BASE . '/Adm/adoptionProcessAprove' ?>" style="padding: 0; margin: 0">
+                            <input type="hidden" value="<?=$process[0]?>" />
+
+                            <button class="btn">Aprovar</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="POST" action="<?= URL_BASE . '/Adm/adoptionProcessReject' ?>" style="padding: 0; margin: 0">
+                            <input type="hidden" value="<?=$process[0]?>" />
+
+                            <button class="btn">Rejeitar</button>
+                        </form>
+                    </td>
+                    <?php
+                    }
+                    ?>
                 </tr>
 
             <?php
