@@ -147,7 +147,7 @@
 
             } else {
 
-                echo "Não há casos de sucesso";
+                echo "Não há adoções";
 
             }
             ?>

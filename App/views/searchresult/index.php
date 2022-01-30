@@ -136,7 +136,7 @@
 
                             <form action="<?= URL_BASE . '/Kid/applyAdoption' ?>" method="post">
 
-                                <input type="hidden" name="kidId" value="<?=$kid['id']?>" />
+                                <input type="hidden" name="kidId" value="<?=$kid[0]?>" />
 
                                 <input type="hidden" name="userId" value="<?=$_SESSION["userId"]?>" />
 

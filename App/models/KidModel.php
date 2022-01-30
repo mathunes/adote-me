@@ -93,7 +93,11 @@ class KidModel extends Connection {
 
         try {
             
-            $sql = "SELECT * FROM kid WHERE adopted = false AND gender = ? AND birthday > ?";
+            $sql = "SELECT * FROM kid LEFT JOIN adoption_process ap ON ap.kid_id = kid.id WHERE
+            kid.adopted = false AND 
+            kid.gender = ? AND 
+            kid.birthday > ? AND
+            ap.kid_id IS NULL";
 
             $conn = KidModel::getConnection();
 
