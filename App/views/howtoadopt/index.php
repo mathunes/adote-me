@@ -46,7 +46,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
                         <li>
-                            <a class="dropdown-item" href="<?= URL_BASE . '/AdmContacts' ?>">Administração</a>
+                            <a class="dropdown-item" href="<?= URL_BASE . '/Adm' ?>">Administração</a>
                         </li>
                         <li>
                             <form action="<?= URL_BASE . '/Authentication/logout' ?>" method="post">
