@@ -134,6 +134,10 @@
 
                             <p class="card-text"><?=$today->diff(new Datetime($kid['birthday']))->y?> anos</p>
 
+                            <p class="card-text"><?=$kid['localization']?></p>
+
+                            <p class="card-text"><?=$kid['health']?></p>
+
                             <form action="<?= URL_BASE . '/Kid/applyAdoption' ?>" method="post">
 
                                 <input type="hidden" name="kidId" value="<?=$kid[0]?>" />

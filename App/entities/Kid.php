@@ -10,6 +10,8 @@ class Kid {
     private $gender;
     private $adopted;
     private $photoLink;
+    private $localization;
+    private $health;
 
     public function getId() {
         return $this->id;
@@ -72,4 +74,23 @@ class Kid {
         return $this;
     }
 
+    public function getLocalization() {
+        return $this->localization;
+    }
+
+    public function setLocalization($localization) {
+        $this->localization = $localization;
+
+        return $this;
+    }
+
+    public function getHealth() {
+        return $this->health;
+    }
+
+    public function setHealth($health) {
+        $this->health = $health;
+
+        return $this;
+    }
 }
