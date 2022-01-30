@@ -104,7 +104,7 @@ class KidModel extends Connection {
 
             $stmt->execute();
 
-            $kids = $stmt->fetch();
+            $kids = $stmt->fetchAll();
             
             $conn = null;
             

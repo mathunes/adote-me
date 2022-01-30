@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="css/success.css" rel="stylesheet" />
+    <link href="<?= URL_CSS ?>success.css" rel="stylesheet" />
     <script src="https://unpkg.com/axios@0.21.4/dist/axios.min.js"></script>
     <title>Adote-me</title>
 </head>
@@ -14,7 +14,7 @@
 <nav class="navbar navbar-expand-lg mb-4 navbar-light">
     <div class="container">
         <a class="navbar-brand" href="./home">
-            <img src="images/logo.png" alt="logo" class="d-inline-block align-top">
+            <img src="<?= URL_IMG ?>/logo.png" alt="logo" class="d-inline-block align-top">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@
                 </li>
                 <li class="nav-item dropdown mx-2 li-profile">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img id="btn-profile" src="images/profile.png" alt="Perfil">
+                        <img id="btn-profile" src="<?=URL_IMG?>/profile.png" alt="Perfil">
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
                         <li>
@@ -78,13 +78,6 @@
 
             <div class="input-container">
 
-                <!--                    <div class="form-check">-->
-                <!--                        <input class="form-check-input" type="radio" name="sexo" id="sexo1" value="INDIFERE" checked>-->
-                <!--                        <label class="form-check-label" for="sexo1">-->
-                <!--                            Indifere-->
-                <!--                        </label>-->
-                <!--                    </div>-->
-
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="sexo" id="sexo2" value="FEMININO" checked>
                     <label class="form-check-label" for="sexo2">
@@ -107,13 +100,6 @@
                 <input type="number" class="form-control" min="0" name="idade" value="0" required>
             </div>
 
-            <!--                <h6>Quantidade máxima de irmãos*</h6>-->
-
-            <!--                <div class="mb-3">-->
-            <!--                    <input type="number" class="form-control" min="0" name="max-irmaos" value="0" required>-->
-            <!--                    <div id="max-irmaos" class="form-text">*Ao adotar uma criança com irmão, é obrigatório aceitá-los na adoção.</div>-->
-            <!--                </div>-->
-
             <button type="submit" class="btn">Filtrar</button>
 
         </form>
@@ -122,28 +108,47 @@
 </div>
 
 <div class="container" id="container">
-    <?= var_dump($data) ?>
+    
     <section>
 
         <h4 class="text-center">Resultados de Busca</h4>
 
         <div class="cards" id="cards">
+            <?php
+            
+            $kids = $data['kids'];
+            
+            $today = new DateTime(date('Y-m-d'));
 
-            <block each="crianca : ${criancas}">
+            if (!empty($kids)) {
 
-                <div class="card">
+                foreach ($kids as $kid) { ?>
+                                       
+                    <div class="card">
 
-                    <div class="card-body">
+                        <img class="card-img-top" src="<?=$kid['photo_link']?>" />
 
-                        <h5 class="card-title" text="${crianca.Name}"></h5>
+                        <div class="card-body">
 
-                        <p class="card-text" text="${crianca.Age}"></p>
+                            <h5 class="card-title"><?=$kid['name']?></h5>
+
+                            <p class="card-text"><?=$today->diff(new Datetime($kid['birthday']))->y?> anos</p>
+
+                        </div>
 
                     </div>
+                    
+                    
+                <?php
 
-                </div>
+                }
 
-            </block>
+            } else {
+
+                echo "Nenhuma criança encontrada";
+
+            }
+            ?>
 
         </div>
 
@@ -153,7 +158,7 @@
 
 <footer class="fixed-bottom">
 
-    <img src="images/logo.png" alt="logo">
+    <img src="<?= URL_IMG ?>/logo.png" alt="logo">
 
 </footer>
 
