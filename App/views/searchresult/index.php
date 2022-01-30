@@ -134,7 +134,15 @@
 
                             <p class="card-text"><?=$today->diff(new Datetime($kid['birthday']))->y?> anos</p>
 
-                            <button class="btn">Candidatar adoção</button>
+                            <form action="<?= URL_BASE . '/Kid/applyAdoption' ?>" method="post">
+
+                                <input type="hidden" name="kidId" value="<?=$kid['id']?>" />
+
+                                <input type="hidden" name="userId" value="<?=$_SESSION["userId"]?>" />
+
+                                <button class="btn" type="submit">Candidatar adoção</button>
+
+                            </form>
 
                         </div>
 

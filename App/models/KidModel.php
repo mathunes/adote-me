@@ -118,4 +118,69 @@ class KidModel extends Connection {
 
     }
 
+    public function applyAdoption($kidId, $userId) {
+
+        try {
+            
+            $sql = "INSERT INTO adoption_process(user_id, kid_id, status) VALUE (?, ?, 'ANALISE')";
+
+            $conn = KidModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(1, $userId);
+            $stmt->bindValue(2, $kidId);
+
+            $stmt->execute();
+
+            $sql = "SELECT * FROM kid, adoption_process ap WHERE ap.user_id = ? AND kid.id = ap.kid_id";
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(1, $userId);
+
+            $stmt->execute();
+
+            $kids = $stmt->fetchAll();
+
+            $conn = null;
+
+            return $kids;
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+    }
+
+    public function myAdoptions($userId) {
+
+        try {
+
+            $sql = "SELECT * FROM kid, adoption_process ap WHERE ap.user_id = ? AND kid.id = ap.kid_id";
+
+            $conn = KidModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(1, $userId);
+
+            $stmt->execute();
+
+            $kids = $stmt->fetchAll();
+
+            $conn = null;
+
+            return $kids;
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+    }
+
 }

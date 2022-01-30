@@ -35,9 +35,44 @@ class Kid extends Controller {
         
         } else {
 
-            Functions::redirect("");
+            Functions::redirect("/home");
 
         }
     }
-    
+
+    public function applyAdoption() {
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
+            $kidId = $_POST['kidId'];
+            $userId = $_POST['userId'];
+
+            $kidModel = $this->model("KidModel");
+
+            $kids = $kidModel->applyAdoption($kidId, $userId);
+            
+            $data = ['kids' => $kids];
+
+            $this->view('myadoptions/index', $data);
+        
+        } else {
+
+            Functions::redirect("/home");
+
+        }
+
+    }
+
+    public function myAdoptions() {
+
+        $kidModel = $this->model("KidModel");
+
+        $kids = $kidModel->myAdoptions($_SESSION['userId']);
+        
+        $data = ['kids' => $kids];
+
+        $this->view('myadoptions/index', $data);
+
+    }
+
 }
