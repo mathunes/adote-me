@@ -78,4 +78,28 @@ class UserModel extends Connection {
 
     }
 
+    public function isAdmin($id) {
+
+        try {
+            
+            $sql = "SELECT * FROM user WHERE admin = true AND id = ? LIMIT 1";
+
+            $conn = UserModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bindValue(1, $id);
+            $stmt->execute();
+
+            $conn = null;
+
+            return  $stmt->fetch(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+    }
+
 }

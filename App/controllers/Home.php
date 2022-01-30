@@ -18,12 +18,8 @@ class Home extends Controller
     }
     
     public function index() {
-        //$artigoModel = $this->model("ArtigoModel");
 
-        //$artigos = $artigoModel->read()->fetchAll(\PDO::FETCH_ASSOC);
+        $this->view('home/index');
 
-        $data = ['artigos' => ''];
-
-        $this->view('home/index', $data);
     }
 }
