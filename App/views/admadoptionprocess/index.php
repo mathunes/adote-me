@@ -92,7 +92,7 @@
                     ?>
                     <td>
                         <form method="POST" action="<?= URL_BASE . '/Adm/adoptionProcessAprove' ?>" style="padding: 0; margin: 0">
-                            <input type="hidden" value="<?=$process[0]?>" />
+                            <input type="hidden" name="adoptionProcessId" value="<?=$process[0]?>" />
 
                             <button class="btn">Aprovar</button>
                         </form>

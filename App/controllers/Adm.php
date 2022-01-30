@@ -123,4 +123,24 @@ class Adm extends Controller
 
     }
 
+    public function adoptionProcessAprove() {
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
+            $adoptionProcessId = $_POST['adoptionProcessId'];
+
+            $adoptionProcessModel = $this->model("AdoptionProcessModel");
+
+            $adoptionProcessModel->aproveAdoption($adoptionProcessId);
+            
+            $this->adoptionProcess();
+        
+        } else {
+
+            Functions::redirect("/home");
+
+        }
+
+    }
+
 }
