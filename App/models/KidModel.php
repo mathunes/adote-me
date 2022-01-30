@@ -187,4 +187,41 @@ class KidModel extends Connection {
 
     }
 
+    public function cancelAdoption($kidId, $userId) {
+
+        try {
+            
+            $sql = "DELETE FROM adoption_process WHERE user_id = ? AND kid_id = ?";
+
+            $conn = KidModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(1, $userId);
+            $stmt->bindValue(2, $kidId);
+
+            $stmt->execute();
+
+            $sql = "SELECT * FROM kid, adoption_process ap WHERE ap.user_id = ? AND kid.id = ap.kid_id";
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(1, $userId);
+
+            $stmt->execute();
+
+            $kids = $stmt->fetchAll();
+
+            $conn = null;
+
+            return $kids;
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+    }
+
 }

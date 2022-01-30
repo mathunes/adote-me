@@ -75,4 +75,27 @@ class Kid extends Controller {
 
     }
 
+    public function cancelAdoption() {
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
+            $kidId = $_POST['kidId'];
+            $userId = $_POST['userId'];
+
+            $kidModel = $this->model("KidModel");
+
+            $kids = $kidModel->cancelAdoption($kidId, $userId);
+            
+            $data = ['kids' => $kids];
+
+            $this->view('myadoptions/index', $data);
+        
+        } else {
+
+            Functions::redirect("/home");
+
+        }
+
+    }
+
 }
