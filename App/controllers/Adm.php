@@ -78,4 +78,10 @@ class Adm extends Controller
 
     }
 
+    public function newKid() {
+
+        $this->view('admnewkid/index');
+
+    }
+
 }

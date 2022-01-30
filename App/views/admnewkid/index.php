@@ -59,50 +59,39 @@
 
     <div class="container container-page">
 
-        <h4>Crianças</h4>
+        <h4>Adicionar criança</h4>
 
-        <a href="/Adm/newKid">
-            <button class="btn">Adicionar criança</button>
-        </a>
+        <form action="<?= URL_BASE . '/Adm/registerKid' ?>" method="post">
 
-        <table>
+            <div class="form-label">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Nome" required>
+            </div>
 
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Idade</th>
-                    <th>Sexo</th>
-                    <th>Adotada</th>
-                </tr>
-            </thead>
+            <div class="form-label">
+                <input type="date" class="form-control" id="birthday" name="birthday" required>
+            </div>
 
-            <tbody>
+            <select class="form-select">
+                <option selected>Sexo</option>
+                <option value="FEMININO">Feminino</option>
+                <option value="MASCULINO">Masculino</option>
+            </select>
 
-            <?php
-            
-            $kids = $data['kids'];
+            <div class="form-label">
+                <input type="text" class="form-control" id="photo_link" name="photo_link" placeholder="Link da foto" required>
+            </div>
 
-            $today = new DateTime(date('Y-m-d'));
+            <div class="form-label">
+                <input type="text" class="form-control" id="localization" name="localization" placeholder="Estado (Rio de Janeiro, São Paulo...)" required>
+            </div>
 
-            if (!empty($kids)) {
+            <div class="form-label">
+                <input type="text" class="form-control" id="health" name="health" placeholder="Estado de saúde" required>
+            </div>
 
-                foreach ($kids as $kid) { ?>
-                 
-                <tr>
-                    <td><?=$kid['name']?></td>
-                    <td><?=$today->diff(new Datetime($kid['birthday']))->y?> anos</td>
-                    <td><?=$kid['gender']?></td>
-                    <td><?=$kid['adopted'] ? 'Sim' : 'Não'?></td>
-                </tr>
+            <button class="btn">Cadastrar</button>
 
-            <?php
-                }
-            }
-            ?>
-
-            </tbody>
-
-        </table>
+        </form>
 
     </div>
 
