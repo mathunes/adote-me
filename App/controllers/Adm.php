@@ -3,7 +3,7 @@
 use App\Core\Controller;
 use App\Core\Functions;
 
-class AdmContacts extends Controller
+class Adm extends Controller
 {
 
     function __construct() {
@@ -38,6 +38,18 @@ class AdmContacts extends Controller
         $data = ['contactMessages' => $contactMessages];
 
         $this->view('admcontacts/index', $data);
+
+    }
+    
+    public function doubt() {
+        
+        $doubtModel = $this->model("DoubtModel");
+
+        $doubtMessages = $doubtModel->getAll();
+
+        $data = ['doubtMessages' => $doubtMessages];
+
+        $this->view('admdoubt/index', $data);
 
     }
 }
