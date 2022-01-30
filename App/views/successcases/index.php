@@ -72,21 +72,21 @@
         </div>
         <div class="offcanvas-body">
 
-            <form action="/busca" method="get" id="form-search">
+            <form action="<?= URL_BASE . '/Kid/search' ?>" method="post" id="form-search">
 
                 <h6>Sexo</h6>
 
                 <div class="input-container">
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sexo" id="sexo2" value="FEMININO" checked>
+                        <input class="form-check-input" type="radio" name="gender" id="sexo2" value="FEMININO" checked>
                         <label class="form-check-label" for="sexo2">
                             Feminino
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sexo" id="sexo3" value="MASCULINO">
+                        <input class="form-check-input" type="radio" name="gender" id="sexo3" value="MASCULINO">
                         <label class="form-check-label" for="sexo3">
                             Masculino
                         </label>
@@ -97,7 +97,7 @@
                 <h6>Idade máxima</h6>
 
                 <div class="mb-3">
-                    <input type="number" class="form-control" min="0" name="idade" value="0" required>
+                    <input type="number" class="form-control" min="0" name="maxAge" value="0" required>
                 </div>
 
                 <button type="submit" class="btn">Filtrar</button>

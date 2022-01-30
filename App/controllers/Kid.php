@@ -17,9 +17,9 @@ class Kid extends Controller {
     }
     
     public function search() {
-     
+        
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+            
             $kid = new \App\entities\Kid();
             
             $gender = $_POST['gender'];
