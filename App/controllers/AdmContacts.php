@@ -30,8 +30,14 @@ class AdmContacts extends Controller
     }
     
     public function index() {
+        
+        $contactModel = $this->model("ContactModel");
 
-       $this->view('admcontacts/index');
+        $contactMessages = $contactModel->getAll();
+
+        $data = ['contactMessages' => $contactMessages];
+
+        $this->view('admcontacts/index', $data);
 
     }
 }

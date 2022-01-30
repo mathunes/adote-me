@@ -29,4 +29,27 @@ class ContactModel extends Connection {
 
     }
 
+    public function getAll() {
+
+        try {
+            
+            $sql = "SELECT * FROM contact";
+
+            $conn = ContactModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            
+            $conn = null;
+            
+            return $stmt->fetchAll();;
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+    }
+
 }

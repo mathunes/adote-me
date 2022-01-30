@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="css/home.css" rel="stylesheet" />
+    <link href="css/admcontacts.css" rel="stylesheet" />
     <script src="https://unpkg.com/axios@0.21.4/dist/axios.min.js"></script>
     <title>Adote-me</title>
 </head>
@@ -43,7 +43,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
                             <li>
-                                <a class="dropdown-item" href="<?= URL_BASE . '/AdmHome' ?>">Administração</a>
+                                <a class="dropdown-item" href="<?= URL_BASE . '/Home' ?>">Início</a>
                             </li>
                             <li>
                                 <form action="<?= URL_BASE . '/Authentication/logout' ?>" method="post">
@@ -57,52 +57,14 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container container-page">
 
+        <h4>Mensagens de contato</h4>
 
-        <!-- testimonials -->
-
-        <section>
-
-            <h4>Depoimentos</h4>
-
-            <div class="cards">
-
-                <div class="card" style="width: 18rem;">
-                    <img src="images/test-1.png" class="card-img-top" alt="Foto de Família Castro">
-                    <div class="card-body">
-                        <p class="card-text">“A pequena Juh preencheu um grande vazio que tínhamos em nosso lar.”</p>
-                    </div>
-                    <div class="card-footer">
-                        <span>Família Castro</span>
-                    </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                    <img src="images/test-2.png" class="card-img-top" alt="Foto de Jamille Sol">
-                    <div class="card-body">
-                        <p class="card-text">“Mabel é a prova de que sonhos podem se tornar realidade.”</p>
-                    </div>
-                    <div class="card-footer">
-                        <span>Jamille Sol</span>
-                    </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                    <img src="images/test-3.png" class="card-img-top" alt="Foto de Martins López">
-                    <div class="card-body">
-                        <p class="card-text">“Depois de tanto de espera, tenho meu companheiro para assistir futebol comigo.”</p>
-                    </div>
-                    <div class="card-footer">
-                        <span>Martins López</span>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
+        <?php var_dump($data); ?>
 
     </div>
+
     <footer>
 
         <img src="images/logo.png" alt="logo">
