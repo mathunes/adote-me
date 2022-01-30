@@ -102,4 +102,27 @@ class UserModel extends Connection {
 
     }
 
+    public function getAll() {
+
+        try {
+            
+            $sql = "SELECT * FROM user";
+
+            $conn = UserModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            
+            $conn = null;
+            
+            return $stmt->fetchAll();;
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+    }
+
 }

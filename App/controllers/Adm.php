@@ -49,7 +49,21 @@ class Adm extends Controller
 
         $data = ['doubtMessages' => $doubtMessages];
 
-        $this->view('admdoubt/index', $data);
+        $this->view('admdoubts/index', $data);
 
     }
+
+    
+    public function user() {
+        
+        $userModel = $this->model("UserModel");
+
+        $users = $userModel->getAll();
+
+        $data = ['users' => $users];
+
+        $this->view('admusers/index', $data);
+
+    }
+
 }

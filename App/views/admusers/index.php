@@ -23,13 +23,13 @@
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto d-flex mb-2 mb-lg-0">
                     <li class="nav-item mx-2">
-                        <a class="nav-link active" href="/Adm">Mensagens de contato</a>
+                        <a class="nav-link" href="/Adm">Mensagens de contato</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link" href="/Adm/doubt">Mensagens de dúvidas</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="/SuccessCases">Usuários</a>
+                        <a class="nav-link active" href="/Adm/user">Usuários</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link" href="/SuccessCases">Crianças</a>
@@ -59,15 +59,15 @@
 
     <div class="container container-page">
 
-        <h4>Mensagens de dúvidas</h4>
+        <h4>Usuários</h4>
 
         <table>
 
             <thead>
                 <tr>
-                    <th>Mensagem</th>
-                    <th>Usuário</th>
+                    <th>Nome</th>
                     <th>Email</th>
+                    <th>Admin</th>
                 </tr>
             </thead>
 
@@ -75,16 +75,16 @@
 
             <?php
             
-            $doubtMessages = $data['doubtMessages'];
+            $users = $data['users'];
 
-            if (!empty($doubtMessages)) {
+            if (!empty($users)) {
 
-                foreach ($doubtMessages as $doubtMessage) { ?>
+                foreach ($users as $user) { ?>
                  
                 <tr>
-                    <td><?=$doubtMessage['message']?></td>
-                    <td><?=$doubtMessage['name']?></td>
-                    <td><?=$doubtMessage['email']?></td>
+                    <td><?=$user['name']?></td>
+                    <td><?=$user['email']?></td>
+                    <td><?=$user['admin'] ? 'Sim' : 'Não'?></td>
                 </tr>
 
             <?php

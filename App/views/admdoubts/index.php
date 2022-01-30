@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="css/adm.css" rel="stylesheet" />
+    <link href="<?= URL_CSS . '/adm.css'?>" rel="stylesheet" />
     <script src="https://unpkg.com/axios@0.21.4/dist/axios.min.js"></script>
     <title>Adote-me</title>
 </head>
@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-lg mb-4 navbar-light">
         <div class="container">
             <a class="navbar-brand" href="./home">
-                <img src="images/logo.png" alt="logo" class="d-inline-block align-top">
+                <img src="<?= URL_IMG . '/logo.png' ?>" alt="logo" class="d-inline-block align-top">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -23,10 +23,10 @@
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto d-flex mb-2 mb-lg-0">
                     <li class="nav-item mx-2">
-                        <a class="nav-link active" href="/Adm">Mensagens de contato</a>
+                        <a class="nav-link" href="/Adm">Mensagens de contato</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="/Adm/doubt">Mensagens de dúvidas</a>
+                        <a class="nav-link active" href="/Adm/doubt">Mensagens de dúvidas</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link" href="/Adm/user">Usuários</a>
@@ -39,7 +39,7 @@
                     </li>
                     <li class="nav-item dropdown mx-2 li-profile">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img id="btn-profile" src="images/profile.png" alt="Perfil">
+                            <img id="btn-profile" src="<?= URL_IMG . '/profile.png' ?>" alt="Perfil">
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
                             <li>
@@ -59,7 +59,7 @@
 
     <div class="container container-page">
 
-        <h4>Mensagens de contato</h4>
+        <h4>Mensagens de dúvidas</h4>
 
         <table>
 
@@ -75,16 +75,16 @@
 
             <?php
             
-            $contactMessages = $data['contactMessages'];
+            $doubtMessages = $data['doubtMessages'];
 
-            if (!empty($contactMessages)) {
+            if (!empty($doubtMessages)) {
 
-                foreach ($contactMessages as $contactMessage) { ?>
+                foreach ($doubtMessages as $doubtMessage) { ?>
                  
                 <tr>
-                    <td><?=$contactMessage['message']?></td>
-                    <td><?=$contactMessage['name']?></td>
-                    <td><?=$contactMessage['email']?></td>
+                    <td><?=$doubtMessage['message']?></td>
+                    <td><?=$doubtMessage['name']?></td>
+                    <td><?=$doubtMessage['email']?></td>
                 </tr>
 
             <?php
@@ -100,7 +100,7 @@
 
     <footer>
 
-        <img src="images/logo.png" alt="logo">
+        <img src="<?= URL_IMG . '/logo.png' ?>" alt="logo">
 
     </footer>
 
