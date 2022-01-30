@@ -114,6 +114,7 @@ section .cards .card {
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin-bottom: 60px;
 }
 
 footer {
@@ -122,5 +123,5 @@ footer {
     align-items: center;
     justify-content: center;
     padding: 20px 0 15px 0;
-    margin-top: 50px;
+    margin-top: 120px;
 }
