@@ -97,7 +97,7 @@ class KidModel extends Connection {
             kid.adopted = false AND 
             kid.gender = ? AND 
             kid.birthday > ? AND
-            ap.kid_id IS NULL";
+            kid.adoption_process = 'FECHADO'";
 
             $conn = KidModel::getConnection();
 
@@ -134,6 +134,14 @@ class KidModel extends Connection {
 
             $stmt->bindValue(1, $userId);
             $stmt->bindValue(2, $kidId);
+
+            $stmt->execute();
+
+            $sql = "UPDATE kid SET adoption_process = 'ABERTO' WHERE id = ?";
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(1, $kidId);
 
             $stmt->execute();
 
@@ -202,7 +210,7 @@ class KidModel extends Connection {
 
             $stmt->execute();
 
-            $sql = "UPDATE kid SET adopted = false WHERE id = ?";
+            $sql = "UPDATE kid SET adopted = false, adoption_process = 'FECHADO' WHERE id = ?";
 
             $stmt = $conn->prepare($sql);
 
