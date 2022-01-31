@@ -159,6 +159,12 @@ section #form-contact textarea:focus {
     border: 2px solid #FF6243;
 }
 
+section #form-contact input:focus {
+    outline: none !important;
+    box-shadow: none;
+    border: 2px solid #FF6243;
+}
+
 footer {
     background-color: #FFFFFF;
     display: flex;
