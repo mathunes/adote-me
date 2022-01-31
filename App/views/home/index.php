@@ -139,9 +139,9 @@
                     <img src="images/carousel-img-3.png" class="d-block w-100" alt="Pés de crianças">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Mude a história de uma criança</h5>
-                        <a href="#" class="link-carousel">
-                            <p>Adote uma criança</p>
-                        </a>
+                        <!-- <a href="#" class="link-carousel">
+                            <p>Adote</p>
+                        </a> -->
                     </div>
                 </div>
             </div>
@@ -225,7 +225,7 @@
                 <div class="card" style="width: 18rem;">
                     <img src="images/test-3.png" class="card-img-top" alt="Foto de Martins López">
                     <div class="card-body">
-                        <p class="card-text">“Depois de tanto de espera, tenho meu companheiro para assistir futebol comigo.”</p>
+                        <p class="card-text">“Depois de tanto tempo de espera, tenho meu companheiro para assistir futebol comigo.”</p>
                     </div>
                     <div class="card-footer">
                         <span>Martins López</span>

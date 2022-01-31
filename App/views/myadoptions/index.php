@@ -131,13 +131,13 @@
 
                             <h5 class="card-title"><?=$kid['name']?></h5>
 
-                            <p class="card-text"><?=$today->diff(new Datetime($kid['birthday']))->y?> anos</p>
-
-                            <p class="card-text"><?=$kid['status']?></p>
+                            <!-- <p class="card-text"><?=$today->diff(new Datetime($kid['birthday']))->y?> anos</p>
                             
                             <p class="card-text"><?=$kid['localization']?></p>
 
-                            <p class="card-text"><?=$kid['health']?></p>
+                            <p class="card-text"><?=$kid['health']?></p> -->
+
+                            <p class="card-text" id="adoption-status"><?=$kid['status']?></p>
 
                             <form action="<?= URL_BASE . '/Kid/cancelAdoption' ?>" method="post">
 

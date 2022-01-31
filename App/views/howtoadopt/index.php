@@ -150,7 +150,7 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <img src="images/deadline.png" class="card-img-top" alt="Calendário">
-                    <h5 class="card-title">10 para divulgação do resultado</h5>
+                    <h5 class="card-title">10 dias para divulgação do resultado</h5>
                 </div>
             </div>
 
