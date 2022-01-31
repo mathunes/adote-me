@@ -26,6 +26,7 @@ class Doubt extends Controller {
             
             $doubt->setMessage($_POST['message']);
             $doubt->setUserId($_POST['userId']);
+            $doubt->setWhatsapp($_POST['whatsapp']);
 
             $doubtModel = $this->model("DoubtModel");
 

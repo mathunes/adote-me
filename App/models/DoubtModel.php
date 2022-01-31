@@ -8,7 +8,7 @@ class DoubtModel extends Connection {
 
         try {
 
-            $sql = "INSERT INTO doubt(message, user_id) VALUES (?, ?)";
+            $sql = "INSERT INTO doubt(message, user_id, whatsapp) VALUES (?, ?, ?)";
 
             $conn = DoubtModel::getConnection();
 
@@ -16,6 +16,7 @@ class DoubtModel extends Connection {
 
             $stmt->bindValue(1, $doubt->getMessage());
             $stmt->bindValue(2, $doubt->getUserId());
+            $stmt->bindValue(3, $doubt->getWhatsapp());
 
             $stmt->execute();
 

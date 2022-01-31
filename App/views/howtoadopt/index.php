@@ -200,7 +200,7 @@
 
             <div class="mb-3">
                 <label for="whatsapp" class="form-label">WhatsApp para resposta</label>
-                <input type="text" class="form-control" id="whatsapp" placeholder="(21) 98765-4321">
+                <input type="text" class="form-control" name="whatsapp" id="whatsapp" placeholder="(21) 98765-4321">
             </div>
 
             <button type="submit" class="btn">Enviar</button>

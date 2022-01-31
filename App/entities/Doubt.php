@@ -7,6 +7,7 @@ class Doubt {
     private $id;
     private $message;
     private $userId;
+    private $whatsapp;
 
     public function getId() {
         return $this->id;
@@ -38,4 +39,13 @@ class Doubt {
         return $this;
     }
 
+    public function getWhatsapp() {
+        return $this->whatsapp;
+    }
+
+    public function setWhatsapp($whatsapp) {
+        $this->whatsapp = $whatsapp;
+
+        return $this;
+    }
 }
