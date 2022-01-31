@@ -44,7 +44,7 @@ class Doubt {
     }
 
     public function setWhatsapp($whatsapp) {
-        $this->whatsapp = $whatsapp;
+        $this->whatsapp = str_replace("-", "", str_replace("(", "", str_replace(")", "", str_replace(" ", "", $whatsapp))));
 
         return $this;
     }
