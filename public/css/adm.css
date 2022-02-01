@@ -106,6 +106,27 @@ body {
     margin: 10px 0;
 }
 
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-body textarea {
+    margin-top: 20px;
+}
+
+.modal-body textarea:focus {
+    outline: none !important;
+    box-shadow: none;
+    border: 2px solid #FF6243;
+}
+
+.modal-footer button:last-child {
+    background-color: #FF6243;
+    color: #FFFFFF;
+    padding: 5px 30px;
+}
+
 footer {
     background-color: #FFFFFF;
     display: flex;

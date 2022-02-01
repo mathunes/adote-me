@@ -68,6 +68,7 @@
                     <th>Mensagem</th>
                     <th>Usuário</th>
                     <th>Email</th>
+                    <th></th>
                 </tr>
             </thead>
 
@@ -81,10 +82,11 @@
 
                 foreach ($doubtMessages as $doubtMessage) { ?>
                  
-                <tr>
+                <tr class="doubt-info">
                     <td><?=$doubtMessage['message']?></td>
                     <td><?=$doubtMessage['name']?></td>
                     <td><?=$doubtMessage['email']?></td>
+                    <td><?=$doubtMessage['whatsapp'] ? '<button type="button" value="'.$doubtMessage['message'].'-'.$doubtMessage['whatsapp'].'" class="btn modal-anwser" data-bs-toggle="modal" data-bs-target="#answer">Responder por whatsapp</button>' : '' ?></td>
                 </tr>
 
             <?php
@@ -104,7 +106,46 @@
 
     </footer>
 
+    <div class="modal fade" id="answer" tabindex="-1" aria-labelledby="answerLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="answerLabel">Responder</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <b id="question"></b>
+                    <textarea class="form-control" id="answerMessage" placeholder="resposta"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn" id="sendMessage">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="<?= URL_JS . 'jquery-3.4.1.min.js' ?>"></script>
+
+    <script>
+
+        var whatsapp;
+
+        $(".doubt-info").find("td button").click(function() {
+            var question = this.value.split("-")[0];
+            whatsapp = this.value.split("-")[1];
+
+            $('#question').text(question);
+        });
+
+        $('#sendMessage').click(function() {
+            var message = $('#answerMessage').val();
+
+            var win = window.open(`https://wa.me/${whatsapp}?text=${message}`, '_blank');
+        });
+
+    </script>
 
 </body>
 </html>
