@@ -75,6 +75,19 @@ section h4 {
     margin-bottom: 50px;
 }
 
+section form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section form #adopt-family {
+    background-color: #FF6243;
+    color: #FFFFFF;
+    padding: 5px 30px;
+    margin-bottom: 20px;
+}
+
 section .cards {
     display: flex;
     flex-direction: row;

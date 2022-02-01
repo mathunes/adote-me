@@ -113,6 +113,8 @@ class Adm extends Controller
 
                 $kidModel->registerBrothers($kidId, $brother);
 
+                $kidModel->registerBrothers($brother, $kidId);
+
             }
 
             Functions::redirect("Adm/kid");

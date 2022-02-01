@@ -95,7 +95,7 @@
             <h6>Idade máxima</h6>
 
             <div class="mb-3">
-                <input type="number" class="form-control" min="0" name="maxAge" value="0" required>
+                <input type="number" class="form-control" min="0" name="maxAge" value="18" required>
             </div>
 
             <button type="submit" class="btn">Filtrar</button>
@@ -113,7 +113,7 @@
 
         <form action="<?= URL_BASE . '/Kid/applyAdoptionFamily' ?>" method="post">
 
-            <button class="btn" type="submit">Candidatar adoção</button>
+            <button class="btn" id="adopt-family" type="submit">Candidatar adoção</button>
 
         </form>
 
