@@ -98,4 +98,27 @@ class Kid extends Controller {
 
     }
 
+    public function applyAdoptionFamily() {
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
+            $kidId = $_POST['kidId'];
+            $userId = $_POST['userId'];
+
+            $kidModel = $this->model("KidModel");
+
+            $brothers = $kidModel->getBrothersByKid($kidId);
+            
+            $data = ['brothers' => $brothers];
+
+            $this->view('familyadoption/index', $data);
+        
+        } else {
+
+            Functions::redirect("/home");
+
+        }
+
+    }
+
 }

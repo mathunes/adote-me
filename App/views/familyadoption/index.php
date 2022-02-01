@@ -109,52 +109,38 @@
     
     <section>
 
-        <h4 class="text-center">Resultados de Busca</h4>
+        <h4 class="text-center">Adoção de família</h4>
+
+        <form action="<?= URL_BASE . '/Kid/applyAdoptionFamily' ?>" method="post">
+
+            <button class="btn" type="submit">Candidatar adoção</button>
+
+        </form>
 
         <div class="cards" id="cards">
             <?php
             
-            $kids = $data['kids'];
+            $brothers = $data['brothers'];
             
             $today = new DateTime(date('Y-m-d'));
 
-            if (!empty($kids)) {
+            if (!empty($brothers)) {
 
-                foreach ($kids as $kid) { ?>
-                                       
+                foreach ($brothers as $brother) { ?>
+
                     <div class="card">
 
-                        <img class="card-img-top" src="<?=$kid['photo_link']?>" />
+                        <img class="card-img-top" src="<?=$brother['photo_link']?>" />
 
                         <div class="card-body">
 
-                            <h5 class="card-title"><?=$kid['name']?></h5>
+                            <h5 class="card-title"><?=$brother['name']?></h5>
 
-                            <p class="card-text"><?=$today->diff(new Datetime($kid['birthday']))->y?> anos</p>
+                            <p class="card-text"><?=$today->diff(new Datetime($brother['birthday']))->y?> anos</p>
 
-                            <p class="card-text"><?=$kid['localization']?></p>
+                            <p class="card-text"><?=$brother['localization']?></p>
 
-                            <p class="card-text"><?=$kid['health']?></p>
-
-                            <form action="<?= URL_BASE . '/Kid/applyAdoption' ?>" method="post">
-
-                                <input type="hidden" name="kidId" value="<?=$kid[0]?>" />
-
-                                <input type="hidden" name="userId" value="<?=$_SESSION["userId"]?>" />
-
-                                <button class="btn" type="submit">Candidatar adoção</button>
-
-                            </form>
-
-                            <form action="<?= URL_BASE . '/Kid/applyAdoptionFamily' ?>" method="post">
-
-                                <input type="hidden" name="kidId" value="<?=$kid[0]?>" />
-
-                                <input type="hidden" name="userId" value="<?=$_SESSION["userId"]?>" />
-
-                                <input class="btn" type="submit" value="Adoção de família" />
-
-                            </form>
+                            <p class="card-text"><?=$brother['health']?></p>
 
                         </div>
 

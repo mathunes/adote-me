@@ -115,7 +115,7 @@ class Adm extends Controller
 
             }
 
-            //Functions::redirect("Adm/kid");
+            Functions::redirect("Adm/kid");
         
         } else {
 

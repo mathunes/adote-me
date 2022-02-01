@@ -319,32 +319,6 @@ class KidModel extends Connection {
 
     }
 
-    public function getBrothers() {
-
-        try {
-            
-            $sql = "SELECT * FROM kid LEFT JOIN adoption_process ap ON ap.kid_id = kid.id";
-
-            $conn = KidModel::getConnection();
-
-            $stmt = $conn->prepare($sql);
-
-            $stmt->execute();
-
-            $kids = $stmt->fetchAll();
-            
-            $conn = null;
-            
-            return $kids;
-
-        } catch (PDOException $e) {
-
-            die('query fail: ' . $e->getMessage());
-
-        }
-
-    }
-
     public function registerBrothers($kidId1, $kidId2) {
 
         try {
@@ -368,6 +342,69 @@ class KidModel extends Connection {
 
         }
 
+    }
+
+    public function getBrothers() {
+
+        try {
+            
+            $sql = "SELECT * FROM kid LEFT JOIN adoption_process ap ON ap.kid_id = kid.id";
+
+            $conn = KidModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->execute();
+
+            $brothers = $stmt->fetchAll();
+            
+            $conn = null;
+            
+            return $brothers;
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+    }
+
+    public function getBrothersByKid($kidId) {
+
+        try {
+            
+            $sql = "SELECT kid.id, kid.name, kid.photo_link, kid.birthday, kid.localization, kid.health FROM kid_kid, kid WHERE kid_kid.kid_id_1 = ? AND kid.id = kid_kid.kid_id_2 AND kid.adopted = false AND kid.adoption_process = 'FECHADO'";
+
+            $conn = KidModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(1, $kidId);
+
+            $stmt->execute();
+
+            $brothers = $stmt->fetchAll();
+
+            $sql = "SELECT kid.id, kid.name, kid.photo_link, kid.birthday, kid.localization, kid.health FROM kid WHERE kid.id = ?";
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(1, $kidId);
+
+            $stmt->execute();
+
+            $kid = $stmt->fetchAll();
+
+            $conn = null;
+            
+            return array_merge($kid, $brothers);
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
 
     }
 
