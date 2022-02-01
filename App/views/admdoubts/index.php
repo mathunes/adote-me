@@ -142,7 +142,7 @@
         $('#sendMessage').click(function() {
             var message = $('#answerMessage').val();
 
-            var win = window.open(`https://wa.me/${whatsapp}?text=${message}`, '_blank');
+            var win = window.open(`https://wa.me/55${whatsapp}?text=${message}`, '_blank');
         });
 
     </script>
