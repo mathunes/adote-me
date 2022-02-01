@@ -53,4 +53,29 @@ class DoubtModel extends Connection {
 
     }
 
+    public function delete($doubtId) {
+
+        try {
+            
+            $sql = "DELETE FROM doubt WHERE id = ?";
+
+            $conn = DoubtModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(1, $doubtId);
+
+            $stmt->execute();
+            
+            $conn = null;
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+
+    }
+
 }

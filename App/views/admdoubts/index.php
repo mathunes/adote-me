@@ -69,6 +69,7 @@
                     <th>Usuário</th>
                     <th>Email</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
 
@@ -87,6 +88,15 @@
                     <td><?=$doubtMessage['name']?></td>
                     <td><?=$doubtMessage['email']?></td>
                     <td><?=$doubtMessage['whatsapp'] ? '<button type="button" value="'.$doubtMessage['message'].'-'.$doubtMessage['whatsapp'].'" class="btn modal-anwser" data-bs-toggle="modal" data-bs-target="#answer">Responder por whatsapp</button>' : '' ?></td>
+                    <td>
+                        <form action="<?= URL_BASE . '/Adm/deleteDoubt' ?>" method="post" class="form-edit-kid">
+                            <input type="hidden" name="doubtId" value="<?=$doubtMessage['id']?>">
+
+                            <button class="btn-edit" type="submit">
+                                <img class="btn-edit-icon" src="<?= URL_IMG . '/delete.png' ?>" alt="Excluir" />
+                            </button>
+                        </form>
+                    </td>
                 </tr>
 
             <?php

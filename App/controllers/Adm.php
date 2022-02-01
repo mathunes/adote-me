@@ -233,4 +233,28 @@ class Adm extends Controller
 
     }
 
+    public function deleteDoubt() {
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
+            $doubtId = $_POST['doubtId'];
+
+            $doubtModel = $this->model("DoubtModel");
+
+            $doubtModel->delete($doubtId);
+
+            $doubtMessages = $doubtModel->getAll();
+
+            $data = ['doubtMessages' => $doubtMessages];
+
+            $this->view('admdoubts/index', $data);
+        
+        } else {
+
+            Functions::redirect("/home");
+
+        }
+
+    }
+
 }

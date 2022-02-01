@@ -102,7 +102,6 @@
                                 <img class="btn-edit-icon" src="<?= URL_IMG . '/edit.png' ?>" alt="Editar" />
                             </button>
                         </form>
-                        
                     </td>
                 </tr>
 
