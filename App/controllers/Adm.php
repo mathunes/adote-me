@@ -179,4 +179,58 @@ class Adm extends Controller
 
     }
 
+    public function editKid() {
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
+            $kidId = $_POST['kidId'];
+
+            $kidModel = $this->model("KidModel");
+
+            $kid = $kidModel->getById($kidId);
+            
+            $brothers = $kidModel->getBrothers();
+
+            $data = ['brothers' => $brothers];
+
+            $data = ['kid' => $kid];
+
+            $this->view('admEditKid/index', $data);
+        
+        } else {
+
+            Functions::redirect("/home");
+
+        }
+
+    }
+
+    public function editRegisterKid() {
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
+            $kid = new \App\entities\Kid();
+            
+            $kid->setName($_POST['name']);
+            $kid->setBirthday($_POST['birthday']);
+            $kid->setGender($_POST['gender']);
+            $kid->setPhotoLink($_POST['photo_link']);
+            $kid->setLocalization($_POST['localization']);
+            $kid->setHealth($_POST['health']);
+            $kid->setId($_POST['id']);
+
+            $kidModel = $this->model("KidModel");
+
+            $kidModel->update($kid);
+
+            Functions::redirect("Adm/kid");
+        
+        } else {
+
+            Functions::redirect("/home");
+
+        }
+
+    }
+
 }

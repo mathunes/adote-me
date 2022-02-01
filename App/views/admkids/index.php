@@ -73,6 +73,7 @@
                     <th>Idade</th>
                     <th>Sexo</th>
                     <th>Adotada</th>
+                    <th></th>
                 </tr>
             </thead>
 
@@ -93,6 +94,16 @@
                     <td><?=$today->diff(new Datetime($kid['birthday']))->y?> anos</td>
                     <td><?=$kid['gender']?></td>
                     <td><?=$kid['adopted'] ? 'Sim' : 'Não'?></td>
+                    <td>
+                        <form action="<?= URL_BASE . '/Adm/editKid' ?>" method="post" class="form-edit-kid">
+                            <input type="hidden" name="kidId" value="<?=$kid['id']?>">
+
+                            <button class="btn-edit" type="submit">
+                                <img class="btn-edit-icon" src="<?= URL_IMG . '/edit.png' ?>" alt="Editar" />
+                            </button>
+                        </form>
+                        
+                    </td>
                 </tr>
 
             <?php

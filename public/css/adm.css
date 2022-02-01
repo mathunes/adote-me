@@ -132,6 +132,20 @@ body {
     flex-direction: column;
 }
 
+.container-page table .form-edit-kid {
+    margin: 0;
+    padding: 0;
+}
+
+.container-page table .btn-edit {
+    background-color: transparent;
+    border: none;
+}
+
+.container-page table .btn-edit-icon {
+    width: 16px;
+}
+
 footer {
     background-color: #FFFFFF;
     display: flex;

@@ -8,7 +8,7 @@ class KidModel extends Connection {
         
         try {
             
-            $sql = "SELECT * FROM user WHERE id = ?";
+            $sql = "SELECT * FROM kid WHERE id = ?";
 
             $conn = UserModel::getConnection();
 
@@ -407,5 +407,36 @@ class KidModel extends Connection {
         }
 
     }
+
+    public function update($kid) {
+
+        try {
+
+            $sql = "UPDATE kid SET name = ?, birthday = ?, gender = ?, photo_link = ?, localization = ?, health = ? WHERE id = ?";
+
+            $conn = KidModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(1, $kid->getName());
+            $stmt->bindValue(2, $kid->getBirthday());
+            $stmt->bindValue(3, $kid->getGender());
+            $stmt->bindValue(4, $kid->getPhotoLink());
+            $stmt->bindValue(5, $kid->getLocalization());
+            $stmt->bindValue(6, $kid->getHealth());
+            $stmt->bindValue(7, $kid->getId());
+
+            $stmt->execute();
+
+            $conn = null;
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+    }
+
 
 }

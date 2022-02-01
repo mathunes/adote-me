@@ -13,7 +13,7 @@
 
     <nav class="navbar navbar-expand-lg mb-4 navbar-light">
         <div class="container">
-            <a class="navbar-brand">
+            <a class="navbar-brand" href="./home">
                 <img src="<?= URL_IMG . '/logo.png' ?>" alt="logo" class="d-inline-block align-top">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,10 +32,10 @@
                         <a class="nav-link" href="/Adm/user">Usuários</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="/Adm/kid">Crianças</a>
+                        <a class="nav-link active" href="/Adm/kid">Crianças</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link active" href="/Adm/adoptionProcess">Processos de adoção</a>
+                        <a class="nav-link" href="/Adm/adoptionProcess">Processos de adoção</a>
                     </li>
                     <li class="nav-item dropdown mx-2 li-profile">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -59,64 +59,40 @@
 
     <div class="container container-page">
 
-        <h4>Processos de adoção</h4>
+        <h4>Editar criança</h4>
 
-        <table>
+        <form action="<?= URL_BASE . '/Adm/editRegisterKid' ?>" method="post">
 
-            <thead>
-                <tr>
-                    <th>Criança</th>
-                    <th>Candidato</th>
-                    <th>Status</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
+            <input type="hidden" name="id" value="<?=$data['kid']['id']?>" />
 
-            <tbody>
+            <div class="form-label">
+                <input type="text" class="form-control" value="<?=$data['kid']['name']?>" id="name" name="name" placeholder="Nome" required>
+            </div>
 
-            <?php
-            
-            $processes = $data['processes'];
+            <div class="form-label">
+                <input type="date" class="form-control" value="<?=$data['kid']['birthday']?>" id="birthday" name="birthday" required>
+            </div>
 
-            if (!empty($processes)) {
+            <select class="form-select" name="gender">
+                <option value="FEMININO" <?=$data['kid']['gender'] = 'FEMININO' ? 'selected' : '' ?>>Feminino</option>
+                <option value="MASCULINO" <?=$data['kid']['gender'] = 'MASCULINO' ? 'selected' : '' ?>>Masculino</option>
+            </select>
 
-                foreach ($processes as $process) { ?>
-                 
-                <tr>
-                    <td><?=$process['name']?></td>
-                    <td><?=$process[5]?></td>
-                    <td><?=$process['status']?></td>
-                    <?php
-                    if ($process['status'] == 'EM ANALISE') {
-                    ?>
-                    <td>
-                        <form method="POST" action="<?= URL_BASE . '/Adm/adoptionProcessAprove' ?>" style="padding: 0; margin: 0">
-                            <input type="hidden" name="adoptionProcessId" value="<?=$process[0]?>" />
+            <div class="form-label">
+                <input type="text" class="form-control" value="<?=$data['kid']['photo_link']?>" id="photo_link" name="photo_link" placeholder="Link da foto" required>
+            </div>
 
-                            <button class="btn">Aprovar</button>
-                        </form>
-                    </td>
-                    <td>
-                        <form method="POST" action="<?= URL_BASE . '/Adm/adoptionProcessReject' ?>" style="padding: 0; margin: 0">
-                            <input type="hidden" name="adoptionProcessId" value="<?=$process[0]?>" />
+            <div class="form-label">
+                <input type="text" class="form-control" value="<?=$data['kid']['localization']?>" id="localization" name="localization" placeholder="Estado (Rio de Janeiro, São Paulo...)" required>
+            </div>
 
-                            <button class="btn">Rejeitar</button>
-                        </form>
-                    </td>
-                    <?php
-                    }
-                    ?>
-                </tr>
+            <div class="form-label">
+                <input type="text" class="form-control" value="<?=$data['kid']['health']?>" id="health" name="health" placeholder="Estado de saúde" required>
+            </div>
 
-            <?php
-                }
-            }
-            ?>
+            <button class="btn">Cadastrar</button>
 
-            </tbody>
-
-        </table>
+        </form>
 
     </div>
 
