@@ -282,7 +282,11 @@ class KidModel extends Connection {
 
             $stmt->execute();
 
+            $kidId = $conn->lastInsertId();
+
             $conn = null;
+
+            return $kidId;
 
         } catch (PDOException $e) {
 
@@ -338,6 +342,32 @@ class KidModel extends Connection {
             die('query fail: ' . $e->getMessage());
 
         }
+
+    }
+
+    public function registerBrothers($kidId1, $kidId2) {
+
+        try {
+
+            $sql = "INSERT INTO kid_kid(kid_id_1, kid_id_2) VALUES (?, ?)";
+
+            $conn = KidModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(1, $kidId1);
+            $stmt->bindValue(2, $kidId2);
+            
+            $stmt->execute();
+
+            $conn = null;
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
 
     }
 

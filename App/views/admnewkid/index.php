@@ -90,14 +90,14 @@
 
             <div class="form-label" id="brothers-container">
                 <label for="brothers">Irmãos</label>
-                <select id="brothers" name="brothers" multiple>
+                <select id="brothers" name="brothers[]" multiple>
                     <?php
                         $brothers = $data['brothers'];
 
                         foreach ($brothers as $brother) { 
                     ?>
 
-                            <option value="<?=$brother['id']?>"><?=$brother['name']?></option>                        
+                            <option value="<?=$brother[0]?>"><?=$brother['name']?></option>                        
 
                     <?php
                         }

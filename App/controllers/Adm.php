@@ -105,9 +105,17 @@ class Adm extends Controller
 
             $kidModel = $this->model("KidModel");
 
-            $kidModel->create($kid);
+            $kidId = $kidModel->create($kid);
 
-            Functions::redirect("Adm/kid");
+            $brothers = $_POST['brothers'];
+
+            foreach ($brothers as $brother) {
+
+                $kidModel->registerBrothers($kidId, $brother);
+
+            }
+
+            //Functions::redirect("Adm/kid");
         
         } else {
 
