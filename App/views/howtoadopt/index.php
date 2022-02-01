@@ -94,7 +94,7 @@
             <h6>Idade máxima</h6>
 
             <div class="mb-3">
-                <input type="number" class="form-control" min="0" name="maxAge" value="0" required>
+                <input type="number" class="form-control" min="0" name="maxAge" value="18" required>
             </div>
 
             <button type="submit" class="btn">Filtrar</button>
