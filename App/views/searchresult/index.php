@@ -152,7 +152,7 @@
 
                                 <input type="hidden" name="userId" value="<?=$_SESSION["userId"]?>" />
 
-                                <input class="btn" type="submit" value="Adoção de família" />
+                                <input class="btn" id="show-family" type="submit" value="Adoção de família" />
 
                             </form>
 
