@@ -14,3 +14,4 @@ The following technologies were used in the construction of the project:
 - [JavaScript](https://www.javascript.com/)
 - [jQuery](https://jquery.com/)
 - [Bootstrap](https://getbootstrap.com/)
+- [Figma](https://www.figma.com/)
