@@ -70,7 +70,7 @@ class AdoptionProcessModel extends Connection {
 
             $kidId = $stmt->fetchAll()[0]['id'];
 
-            $sql = "UPDATE kid SET adopted = false WHERE id = ?";
+            $sql = "UPDATE kid SET adopted = false, adoption_process = 'FECHADO' WHERE id = ?";
 
             $stmt = $conn->prepare($sql);
 

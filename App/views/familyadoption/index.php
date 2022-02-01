@@ -113,6 +113,20 @@
 
         <form action="<?= URL_BASE . '/Kid/applyAdoptionFamily' ?>" method="post">
 
+            <input type="hidden" name="userId" value="<?=$_SESSION["userId"]?>" />
+
+            <?php
+
+            $brothers = $data['brothers'];
+
+            foreach ($brothers as $brother) { ?>
+
+                <input type="hidden" name="brothers[]" value="<?=$brother['id']?>" />
+            
+            <?php
+            }
+            ?>
+
             <button class="btn" id="adopt-family" type="submit">Candidatar adoção</button>
 
         </form>

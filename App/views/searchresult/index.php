@@ -146,7 +146,7 @@
 
                             </form>
 
-                            <form action="<?= URL_BASE . '/Kid/applyAdoptionFamily' ?>" method="post">
+                            <form action="<?= URL_BASE . '/Kid/getFamily' ?>" method="post">
 
                                 <input type="hidden" name="kidId" value="<?=$kid[0]?>" />
 
