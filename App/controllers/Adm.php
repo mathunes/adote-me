@@ -80,7 +80,13 @@ class Adm extends Controller
 
     public function newKid() {
 
-        $this->view('admnewkid/index');
+        $kidModel = $this->model("KidModel");
+
+        $brothers = $kidModel->getBrothers();
+
+        $data = ['brothers' => $brothers];
+
+        $this->view("admnewkid/index", $data);
 
     }
 

@@ -315,4 +315,30 @@ class KidModel extends Connection {
 
     }
 
+    public function getBrothers() {
+
+        try {
+            
+            $sql = "SELECT * FROM kid LEFT JOIN adoption_process ap ON ap.kid_id = kid.id";
+
+            $conn = KidModel::getConnection();
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->execute();
+
+            $kids = $stmt->fetchAll();
+            
+            $conn = null;
+            
+            return $kids;
+
+        } catch (PDOException $e) {
+
+            die('query fail: ' . $e->getMessage());
+
+        }
+
+    }
+
 }

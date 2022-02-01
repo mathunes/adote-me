@@ -88,6 +88,23 @@
                 <input type="text" class="form-control" id="health" name="health" placeholder="Estado de saúde" required>
             </div>
 
+            <div class="form-label" id="brothers-container">
+                <label for="brothers">Irmãos</label>
+                <select id="brothers" name="brothers" multiple>
+                    <?php
+                        $brothers = $data['brothers'];
+
+                        foreach ($brothers as $brother) { 
+                    ?>
+
+                            <option value="<?=$brother['id']?>"><?=$brother['name']?></option>                        
+
+                    <?php
+                        }
+                    ?>
+                </select>
+            </div>
+
             <button class="btn">Cadastrar</button>
 
         </form>
