@@ -12,7 +12,7 @@
 
 <nav class="navbar navbar-expand-lg mb-4 navbar-light">
     <div class="container">
-        <a class="navbar-brand" href="./home">
+        <a class="navbar-brand">
             <img src="images/logo.png" alt="logo" class="d-inline-block align-top">
         </a>
 
