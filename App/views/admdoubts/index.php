@@ -90,7 +90,7 @@
                     <td><?=$doubtMessage['whatsapp'] ? '<button type="button" value="'.$doubtMessage['message'].'-'.$doubtMessage['whatsapp'].'" class="btn modal-anwser" data-bs-toggle="modal" data-bs-target="#answer">Responder por whatsapp</button>' : '' ?></td>
                     <td>
                         <form action="<?= URL_BASE . '/Adm/deleteDoubt' ?>" method="post" class="form-edit-kid">
-                            <input type="hidden" name="doubtId" value="<?=$doubtMessage['id']?>">
+                            <input type="hidden" name="doubtId" value="<?=$doubtMessage[0]?>">
 
                             <button class="btn-edit" type="submit">
                                 <img class="btn-edit-icon" src="<?= URL_IMG . '/delete.png' ?>" alt="Excluir" />
