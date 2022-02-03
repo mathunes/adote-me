@@ -20,7 +20,7 @@
             
             <span>Cadastrar</span>
 
-            <form action="/User/register" method="post">
+            <form action="/User/register" method="post" id="form-register">
 
                 <div class="form-label">
                     <input type="text" class="form-control" id="nome" name="name" placeholder="Nome" required>
@@ -31,11 +31,11 @@
                 </div>
 
                 <div class="form-label">
-                    <input type="password" id="senha" class="form-control"  name="password" placeholder="Senha" required>
+                    <input type="password" id="password1" class="form-control" name="password" placeholder="Senha" required>
                 </div>
 
                 <div class="form-label">
-                    <input type="password" id="confirmacaoSenha" class="form-control" name="passwordConfirmation" placeholder="Confirme a senha" required>
+                    <input type="password" id="password2" class="form-control" name="passwordConfirmation" placeholder="Confirme a senha" required>
                 </div>
 
                 <div class="form-label">
@@ -72,7 +72,7 @@
 
                 e.preventDefault();
 
-                alert('Digite a mesma senha!', 'danger')
+                alert('Digite a mesma senha!', 'danger');
 
             }
         });
