@@ -14,7 +14,7 @@ To run this project, you need:
 
        127.0.0.1 adote-me.com
 
-- Go to adote-me.com
+- Go to [adote-me.com](http://adote-me.com)
    
 ### Technologies
 
