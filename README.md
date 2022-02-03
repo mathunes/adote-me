@@ -9,7 +9,7 @@
 To run this project, you need:
 
 - Install [WampServer](https://www.wampserver.com/en/)
-- Upload [data base](https://github.com/mathunes/adote-me/blob/main/dump.sql)
+- Upload [database](https://github.com/mathunes/adote-me/blob/main/dump.sql)
 - Configure the Windows host by editing the file located C:\Windows\System32\drivers\etc\host adding at the end of the file:
 
        127.0.0.1 adote-me.com
