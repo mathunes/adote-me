@@ -4,6 +4,15 @@
 ## Project description
 <b>Adote-me</b> is an application developed as a partial requirement for completing the course Topics in Sofware Engineering II - 2021.2, taught by professor <a href="http://www.ic.uff.br/index.php/pt/pessoas/168-docente?docente=39" target="_blank"> Leonardo Cruz da Costa </a> at Universidade Federal Fluminense.
 
+### Run
+
+To run this project, you need:
+
+- Install [WampServer](https://www.wampserver.com/en/)
+- Upload [data base](https://github.com/mathunes/adote-me/blob/main/dump.sql)
+- Config Windows host editing the file locate C:\Windows\System32\drivers\etc\host adding in end of file:
+   127.0.0.1 adote-me.com
+   
 ### Technologies
 
 The following technologies were used in the construction of the project:
