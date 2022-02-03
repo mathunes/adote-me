@@ -13,6 +13,8 @@ To run this project, you need:
 - Configure the Windows host by editing the file located C:\Windows\System32\drivers\etc\host adding at the end of the file:
 
        127.0.0.1 adote-me.com
+
+- Go to adote-me.com
    
 ### Technologies
 
