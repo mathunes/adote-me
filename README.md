@@ -27,3 +27,4 @@ The following technologies were used in the construction of the project:
 - [jQuery](https://jquery.com/)
 - [Bootstrap](https://getbootstrap.com/)
 - [Figma](https://www.figma.com/)
+- [Composer](https://getcomposer.org/)
