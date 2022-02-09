@@ -21,10 +21,10 @@ To run this project, you need:
 The following technologies were used in the construction of the project:
 
 - [PHP](https://www.php.net/)
+- [Composer](https://getcomposer.org/)
 - [HTML](https://www.w3schools.com/html/)
 - [CSS](https://www.w3schools.com/css/)
 - [JavaScript](https://www.javascript.com/)
 - [jQuery](https://jquery.com/)
 - [Bootstrap](https://getbootstrap.com/)
 - [Figma](https://www.figma.com/)
-- [Composer](https://getcomposer.org/)
